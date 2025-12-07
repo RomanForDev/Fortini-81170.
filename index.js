@@ -38,8 +38,8 @@ const data = "productos.json";
 app.get("/productos", (request, response) => {
     fs.readFile(data, (err, contenido) => {
         const productos = JSON.parse(contenido)
-        response.send(productos);
-    })
+        response.send(productos)
+    });
 })
 
 app.get("/", (request, response) => {
@@ -52,10 +52,22 @@ app.get("/productos/:prodId", (request, response) => {
     fs.readFile(data, "utf-8", (err, contenido) => {
         let productos = JSON.parse(contenido);
         const producto = productos.find(item => item.id == id);
-        return response.send(producto);
+        if(producto){
+        response.send(producto)
+        } else 
+            {response.send("No se ha encontrado el producto.")
+        };
     });
 })
 
 app.listen(port, () => {
     console.log("Servidor activo!" + port);
+})
+
+//////Cart///////
+
+const cart = [];
+
+app.get("/cart", (request, response) => {
+    response.send(`Su carrito de compra: ${cart}`);
 })
