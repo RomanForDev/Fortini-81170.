@@ -14,4 +14,20 @@
     "name": "Fanta",
     "price": 2900,
     "avalaible": true
+}, {"id": 5,
+    "name": "Mirinda",
+    "price": 2500,
+    "avalaible": true
+}, {"id": 6,
+    "name": "Doble Cola",
+    "price": 2600,
+    "avalaible": true
+}, {"id": 7,
+    "name": "Cunnington",
+    "price": 2200,
+    "avalaible": true
+}, {"id": 8,
+    "name": "Pepsi Black",
+    "price": 3000,
+    "avalaible": true
 }]
