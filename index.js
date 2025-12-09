@@ -46,6 +46,8 @@ app.get("/", (request, response) => {
     response.send("Bienvenidos!!");
 })
 
+// Descomentar para probar cada una
+
 /////////////// BÚSQUEDA POR ID ///////////////////////
 
 // app.get("/productos/:prodId", (request, response) => {
@@ -72,7 +74,7 @@ app.get("/productos/:prodName", (request, response) => {
     const name = request.params.prodName;
     fs.readFile(data, "utf-8", (err, contenido) => {
         let productos = JSON.parse(contenido);
-        const producto = productos.find(item => item.name == name);
+        const producto = productos.find(item => item.name == name); // No toma el métido includes. Tendría que probar si con un scope global que parsee en local si lo toma.
         console.log("Función Name");
         if(producto){
         response.send(producto)
@@ -82,8 +84,35 @@ app.get("/productos/:prodName", (request, response) => {
     });
 })
 
+
+/////////////////METODO POST (no se explicó bien)/////////////////////
+
+// const productsList = [];
+// class Prod{
+//     constructor(id, name, price, available) {
+//     this.id = id;
+//     this.name = name;
+//     this.price = price;
+//     this.available = undefined;
+//     }
+// }
+
+// app.post("/api/prod"), (request, response) => {
+    // const pushProd = new Prod(9, "Baggio", 1800, true);
+        //const pushData = "usuarios.json";
+//     fs.readFile(data, "utf-8", (err, contenido) => {
+//         let productos = JSON.parse(contenido);
+//         productsList.push(productos);
+//         productsList.push(pushProd);
+//         fs.writeFile(data, pushProd);
+//         console.log("Función Post!");
+//         response.send(productsList)
+//     })
+// }
+
+
 app.listen(port, () => {
-    console.log("Servidor activo!" + port);
+    console.log(`Servidor ${port} activo!`);
 })
 
 //////Cart///////
