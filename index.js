@@ -69,20 +69,20 @@ app.get("/", (request, response) => {
 
 /////////////// BÚSQUEDA POR NAME //////////////////////
 
-app.get("/productos/:prodName", (request, response) => {
-    // const data = "productos.json";
-    const name = request.params.prodName;
-    fs.readFile(data, "utf-8", (err, contenido) => {
-        let productos = JSON.parse(contenido);
-        const producto = productos.find(item => item.name == name); // No toma el métido includes. Tendría que probar si con un scope global que parsee en local si lo toma.
-        console.log("Función Name");
-        if(producto){
-        response.send(producto)
-        } else 
-            {response.send("No se ha encontrado el producto.")
-        };
-    });
-})
+// app.get("/productos/:prodName", (request, response) => {
+//     // const data = "productos.json";
+//     const name = request.params.prodName;
+//     fs.readFile(data, "utf-8", (err, contenido) => {
+//         let productos = JSON.parse(contenido);
+//         const producto = productos.find(item => item.name == name); // No toma el métido includes. Tendría que probar si con un scope global que parsee en local si lo toma.
+//         console.log("Función Name");
+//         if(producto){
+//         response.send(producto)
+//         } else 
+//             {response.send("No se ha encontrado el producto.")
+//         };
+//     });
+// })
 
 
 /////////////////METODO POST (no se explicó bien)/////////////////////
@@ -96,10 +96,11 @@ app.get("/productos/:prodName", (request, response) => {
 //     this.available = undefined;
 //     }
 // }
+// const pushProd = new Prod(9, "Baggio", 1800, true);
 
 // app.post("/api/prod"), (request, response) => {
-    // const pushProd = new Prod(9, "Baggio", 1800, true);
-        //const pushData = "usuarios.json";
+//     const post = require.body.prod;
+//     const pushData = "usuarios.json";
 //     fs.readFile(data, "utf-8", (err, contenido) => {
 //         let productos = JSON.parse(contenido);
 //         productsList.push(productos);
@@ -111,9 +112,9 @@ app.get("/productos/:prodName", (request, response) => {
 // }
 
 
-app.listen(port, () => {
-    console.log(`Servidor ${port} activo!`);
-})
+// app.listen(port, () => {
+//     console.log(`Servidor ${port} activo!`);
+// })
 
 //////Cart///////
 
