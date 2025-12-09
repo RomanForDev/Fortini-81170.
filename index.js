@@ -46,12 +46,34 @@ app.get("/", (request, response) => {
     response.send("Bienvenidos!!");
 })
 
-app.get("/productos/:prodId", (request, response) => {
+/////////////// BÚSQUEDA POR ID ///////////////////////
+
+// app.get("/productos/:prodId", (request, response) => {
+//     // const data = "productos.json";
+//     const id = request.params.prodId;
+//     fs.readFile(data, "utf-8", (err, contenido) => {
+//         let productos = JSON.parse(contenido);
+//         const producto = productos.find(item => item.id == id);
+        
+//         if(producto){
+//             console.log("Función Id");
+//             response.send(producto)
+//         } else 
+//             {response.send("No se ha encontrado el producto.")
+//             console.log("Función Id");
+//         };
+//     });
+// })
+
+/////////////// BÚSQUEDA POR NAME //////////////////////
+
+app.get("/productos/:prodName", (request, response) => {
     // const data = "productos.json";
-    const id = request.params.prodId;
+    const name = request.params.prodName;
     fs.readFile(data, "utf-8", (err, contenido) => {
         let productos = JSON.parse(contenido);
-        const producto = productos.find(item => item.id == id);
+        const producto = productos.find(item => item.name == name);
+        console.log("Función Name");
         if(producto){
         response.send(producto)
         } else 
